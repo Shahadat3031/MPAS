@@ -7,8 +7,5 @@ FILENAME=ue01
 
 all: $(FILENAME).pdf
 
-%.pdf: %.code.md
+%.pdf: %.md
 	$(CC) -o $@ $(CFLAGS) $<
-
-%.code.md: %.md
-
