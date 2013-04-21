@@ -1,11 +1,43 @@
 % Modeling and Performance Analysis with Simulation
 % Martin Lenders (4206090)
 
+<!-- read external R code -->
+```{r reading, echo=FALSE}
+read_chunk("ue01.r")
+```
+
 Übung 1
 =======
 
 Problem 1: Komponenten eines Systems
 ------------------------------------
+### Komponenten
+System      Entitäten       Attribute                       Aktivitäten     Ereignisse           Zustandsvariablen 
+-------     -------------   ------------------------------  -------------   -----------------    --------------------------
+a)          Fußgänger       Geschwindigkeit                 Laufen          Ende der Bewegung    Geschwindigkeit          
+                            Position                                                             Position                 
+b)          Hosts           Paketdurchsatz                  Senden          Paketankunft         Pakete in der Queue      
+            Verbindungen                                    Empfangen
+                                                            Übertragen
+c)          Access-Points   Übertragungsgeschwindigkeit     Senden          Paketankunft         Menge angemeldeten Clients
+            Clients                                         Empfangen       Client angemeldet    Pakete in der Queue
+                                                            Anmelden        Client abgemeldet    Belegung des Mediums
+                                                            Abmelden                             Menge der verbundenen APs
+
+### Performance-Metriken:
+a) „Viskosität“ der Masse:
+    * Einzelgeschwindigkeiten + Menge der Entitäten im Umfeld in Position als Vektorraum
+    * Felder langsamer Geschwindigkeit mit hohe Entitätenmenge $\Rightarrow$ hohe „Viskosität“
+    * Felder hoher Geschwindigkeit mit jeder Entitätenmenge $\Leftarrow$ geringe „Viskosität“
+    * Ziel: geringe „Viskosität“
+b) Response Time zwischen 2 Hosts
+c) Paketdurchsatz
+
+### Modellierungstechnik
+a) Objekt-Orientiertes Modell mit einer Objektart: Fußgänger
+b) Allgemeiner Graph: Hosts = Knoten, Verbindungen = Kanten
+c) Allgemeiner Graph über Zeit: APs und Clients = Knoten, angemeldete Clients und APs = Kanten
+
 
 Problem 2: Prozess einer Simulatiosstudie
 -----------------------------------------
