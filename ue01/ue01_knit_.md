@@ -37,6 +37,21 @@ def approx_pi(iterations):
             hits += 1
     return hits/shots*4
 ~~~
+Die Ergebnisse von 1000 Durchläufen von Simulationen mit den geforderten Werten
+lassen wir uns in zwei CSV-Dateien ausgeben. Eine für die Ausführungszeiten
+und eine für die Differenzen zu Pi.
+Diese lesen wir dann mit R ein
+```{r}
+<<read-ue01-3-data>>
+```
+und lassen uns Box-and-Whisker-Plots für die Ausführungszeit
+```{r plot-time, result="asis", fig.cap="Ausführungszeit der Monte-Carlo-Simulation"}
+<<plot-ue01-3-data-time>>
+```
+und für die Differenz zu $\pi$ ausgeben.
+```{r plot-diff, result="asis", fig.cap="Differenz zu Pi des Ergebnisses der Monte-Carlo-Simulation"}
+<<plot-ue01-3-data-diff>>
+```
 
 Problem 4: Dynamische kontinuierliche Simulation
 ------------------------------------------------
