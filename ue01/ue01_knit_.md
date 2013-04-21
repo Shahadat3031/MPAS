@@ -69,6 +69,7 @@ def approx_pi(iterations):
             hits += 1
     return hits/shots*4
 ~~~
+
 Die Ergebnisse von 1000 Durchläufen von Simulationen mit den geforderten Werten
 lassen wir uns in zwei CSV-Dateien ausgeben. Eine für die Ausführungszeiten
 und eine für die Differenzen zu Pi.
