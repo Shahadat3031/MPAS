@@ -7,5 +7,13 @@ FILENAME=ue01
 
 all: $(FILENAME).pdf
 
+%.md: %_knit_.md %.r
+	Rscript -e "library(knitr); knit('$<','$@')"
+
 %.pdf: %.md
 	$(CC) -o $@ $(CFLAGS) $<
+
+clean:
+	find . -name "*.md" -and \
+		-not -name "*_knit_.md" -or \
+		-name "*.pdf" | xargs rm
