@@ -88,5 +88,25 @@ und für die Differenz zu $\pi$ ausgeben.
 
 Problem 4: Dynamische kontinuierliche Simulation
 ------------------------------------------------
+Da wir die Lösung von Differentialgleichungssystemen nicht selbst implementieren
+wollen, verwenden wir einfach SciPy:
+
 ~~~python
+import scipy
+from scipy.integrate import odeint
+
+def predpray(a, b, r, s, x_0, y_0, t_start, t_stop, t_samplerate):
+    def derivative((x_t, y_t), t):
+        dx = r * x_t - a * x_t * y_t
+        dy = -s * y_t + b * x_t * y_t
+        return (dx, dy)
+
+    t = scipy.arange(t_start, t_stop, t_samplerate)
+    species = scipy.array((x_0,y_0))
+
+    return odeint(derivative, species, t)
 ~~~
+
+Der Plot für die gegebenen Parameter ist in Figure 3 
+
+![Plot für $r = 0.001, a = 2 \cdot 10^{-6}, s = 0.01, b = 10 \cdot 10^{-6}$, and the initial population sizes $x(0) = 12000$ and $y(0) = 600$.](predprey.png)
