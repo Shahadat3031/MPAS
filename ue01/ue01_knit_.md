@@ -38,6 +38,8 @@ a) Objekt-Orientiertes Modell mit einer Objektart: Fußgänger
 b) Allgemeiner Graph: Hosts = Knoten, Verbindungen = Kanten
 c) Allgemeiner Graph über Zeit: APs und Clients = Knoten, angemeldete Clients und APs = Kanten
 
+zu c) 
+ * mobile Knoten möglich, Kollisionen betrachten
 
 Problem 2: Prozess einer Simulatiosstudie
 -----------------------------------------
