@@ -4,8 +4,11 @@ import random
 import matplotlib.pyplot as plot
 
 
-def generate_point(r):
+def generate_point(r_max):
     phi = random.uniform(-math.pi, math.pi)
+    u = random.random()+random.random()
+    r_unit = 2-u if u > 1 else u
+    r = r_unit * r_max
     x = math.cos(phi) * r
     y = math.sin(phi) * r
     return (x, y)
@@ -17,22 +20,12 @@ def distance(p1, p2):
     return math.sqrt(x**2 + y**2)
 
 
-def simulate(point_num, r, plotit=False):
-    points = [generate_point(r) for _ in range(point_num)]
-
-    if plotit:
-        xs = []
-        ys = []
-        for p in points:
-            xs.append(p[0])
-            ys.append(p[1])
-            plot.plot(xs, ys, 'r+')
-            plot.show()
-
-    point = generate_point(r)
+def simulate(point_num, r):
     d = []
-    for p in points:
-            d.append(distance(p, point))
+    for _ in range(point_num):
+        point1 = generate_point(r)
+        point2 = generate_point(r)
+        d.append(distance(point1, point2))
     return d
 
 
@@ -48,6 +41,6 @@ while num <= 100000:
     d = simulate(num, r)
     print('Result:    %f' % avg(d))
     print('Should be: %f' % ((128/(45*math.pi))*r))
-    plot.hist(d,100)
+    plot.hist(d,10)
     plot.show()
     num *= 10
