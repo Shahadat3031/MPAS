@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from math import sqrt
 
 m1 = 32363.0
@@ -38,7 +40,7 @@ d = max(d_plus, d_minus)
 
 print("D  = {}".format(d))
 
-d_alpha = 1.36/sqrt(len(r))
+d_alpha = 1.36 / sqrt(len(r))
 d_alpha = 0.565
 
 if d <= d_alpha:
