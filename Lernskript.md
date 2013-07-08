@@ -212,12 +212,15 @@ Network simulators
 ==================
 Tools
 -----
+* ns-2
+* OMNeT++
+* SSFNet (standard, not implementation)
+* Parsec (simulation language)
+* OPNET
+* JiST/SWANS
+* BRITE
+* Akaroa
 
-ns-2
-----
-
-OMNeT++
--------
 
 Statistical models in simulation
 ================================
