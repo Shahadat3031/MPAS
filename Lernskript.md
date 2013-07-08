@@ -124,24 +124,89 @@ General principles
 ==================
 Concepts of discrete-event simulation
 -------------------------------------
-
-The event scheduling / time advance algorithm
----------------------------------------------
+* **Definition[*Activity*]:**
+    + unconditional wait
+    + end of activity: primary event (placed in FEL)
+* **Definition[*Delay*]:**
+    + conditional wait
+    + completion of delay: secondary event (placed elsewhere [e.g. secondary queues])
+* **Definition[*System snapshot*]**: include
+    + system state
+    + status of all entities
+    + status of all sets of entities
+    + FEL
+    + statistics
 
 World views
 -----------
+* Event scheduling:
+    + events are executed
+    + variable time advance between events
+* Process-interaction:
+    + processes = lifetimes of entities are executed
+    + processes interact 
+    + process = time-sequenced list of events, activities and delays + demand for resources
+    + variable time advance during processes
+* activity scanning:
+    + checking for conditions of activities at each clock cycle
+    + fixed time advance
+    + disadvantage: slow runtime
+* three-phase approach (hybrid of activity scanning / event scheduling):
+    + events = activities of duration 0
+    + two types of activities:
+        * **B activities:** activities bound to occur (primary events
+          and unconditianal activities)
+        * **C activities:** activities bound to certain conditions
+          (secondary events, conditional activities)
+      $\Rightarrow$ B-type in FEL, activity scanning for C-type
 
-Manual simulation using event scheduling
-----------------------------------------
+Object-oriented simulation framework
+------------------------------------
+* module {rng}
+    - **RNG**
+        + getNext()
+    - **Exponential** extends **RNG**
+        + lambda : **double**
+        + uniform : **random**
+        + Constructor()
+        + getNext()
+    - **Uniform** extends **RNG**
+        + max : **double**
+        + min : **double**
+        + uniform : **random**
+        + Constructor()
+        + getNext()
+* module {core}
+    - **Control**
+        + queue : **Queue**
+        + system_time : **double**
+        + Constructor(**Queue**)
+        + run()
+        + setRunTime(**double**)
+    - **Queue**
+        + schedule(**Event**)
+        + getNextEvent()
+        + dump()
+    - **Event**
+        + arrival_time : **double**
+        + type : **int**
+        + src : **Entity**
+        + dst : **Entity**
+        + Constructor(**double**, **Entity**)
+        + Constructor(**double**, **Entity**, **Entity**)
+    - **Entity**
+        + Constructor(**Control**)
+        + handleEvent(**Event**)
 
-Simulation in Java
-------------------
-
-Object-oriented simulation framework in Java
---------------------------------------------
-
-Modeling of discrete-event simulations
---------------------------------------
+Simulation graphs
+-----------------
+* Nodes: Event or state transition
+    * state variables and changes annotated in $\{\}$ as node label
+* Edges: Scheduling of events by
+    * boolean conditions $(i)$
+    * time delay $t$
+    * parameters for node instance (box on edge)
+    * pointed edges to show cancelation of events
 
 Network simulators
 ==================
