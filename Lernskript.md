@@ -226,21 +226,54 @@ Statistical models in simulation
 ================================
 Basic Propability Theory Concepts
 ---------------------------------
+* discrete random variables distributed by **probability mass function (PMF)** $p(x_i)$
+* continuous random variables distributed by **probability density function (PDF)** $f(x)$
+* **cumulative distribution function (CDF)** $F(x) = \mathbf{Pr}(X \leq x)$
+    + $X$ is discrete: 
+        $$F(x) = \sum\limits_{x_i \leq x} p(x_i)$$
+    + $X$ is continuous:
+        $$F(x) = \int\limits^x_{-\infty} f(t)\ dt$$
+    + $\forall a \leq b: \mathbf{Pr}(a \leq X \leq b) = F(b) - F(a)$
+* **Expacted value** $E(X) = \mu = m = $ mean = 1st moment of $X$ 
+    + $X$ is discrete:
+        $$E(X) = \sum\limits_{i \in \{0,1,\dots\}} x_i p(x_i)$$
+    + $X$ is continuous:
+        $$E(X) = \int\limits_{-\infty}^{\infty} x f(x)\ dx$$ 
+* **Variance** $V(X) = \mathit{Var}(X) = \sigma^2$
+    + measurment of spread or variation of $X$
+    $$V(X) = E((X - E[X])^2) = E(X^2) - (E[X])^2$$
+* **Standard deviation (SD)** $\sigma$
+    $$\sigma = \sqrt{V(x)}$$
+* **Coefficient of variation** ($C.O.V.$)
+    $$C.O.V. = \frac{\sigma}{\mu}, \mu > 0$$
+* **Covariance** ($\mathrm{Cov}(X,Y)$), 0 if $X$ and $Y$ independent
+    $$\mathrm{Cov}(X,Y) = E(XY) - E(X) E(Y)$$ 
+* **Correlation** ($\mathrm{Corr}(X,Y)$) normalized (between -1 and 1) value of covariance
+    $$\mathrm{Corr}(X,Y) = \rho_{XY} = \frac{\sigma_{XY}^2}{\sigma_x \sigma_y}$$
+* $x$ value at which CDF takes value $\alpha$: **$\alpha$-quantile** or **$(100 \cdot \alpha)$-percentile**
+* **Median** = 0.5-quantile
+* **Mode:** most likely value
+* Selecting central tendancy:
+    * data categorical? $\Rightarrow$ **mode**
+    * total of interest? $\Rightarrow$ **mean**
+    * distribution skewed? $\Rightarrow$ **median**
+    * else: **mean**
 
 Discrete distributions
 ----------------------
+* Bernoulli distribution
+* Binomial distribution
+* Geometric distribution
+* Negative Binomial distribution
+* Poisson distribution
 
 Continuous distributions
 ------------------------
-
-Poisson process
----------------
-
-Empirical distributions
------------------------
-
-Useful statistical models
--------------------------
+* Uniform distribution
+* Exponential distribution
+* Weibull distribution
+* Normal distribution
+* Lognormal distribution
 
 Random number generators
 ========================
