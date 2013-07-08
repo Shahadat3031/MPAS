@@ -120,3 +120,146 @@ Queueing systems
     * system capacity
     * queuing discipline
 
+General principles
+==================
+Concepts of discrete-event simulation
+-------------------------------------
+
+The event scheduling / time advance algorithm
+---------------------------------------------
+
+World views
+-----------
+
+Manual simulation using event scheduling
+----------------------------------------
+
+Simulation in Java
+------------------
+
+Object-oriented simulation framework in Java
+--------------------------------------------
+
+Modeling of discrete-event simulations
+--------------------------------------
+
+Network simulators
+==================
+Tools
+-----
+
+ns-2
+----
+
+OMNeT++
+-------
+
+Statistical models in simulation
+================================
+Basic Propability Theory Concepts
+---------------------------------
+
+Discrete distributions
+----------------------
+
+Continuous distributions
+------------------------
+
+Poisson process
+---------------
+
+Empirical distributions
+-----------------------
+
+Useful statistical models
+-------------------------
+
+Random number generators
+========================
+Properties of random numbers
+----------------------------
+
+Pseudo-random numbers
+---------------------
+
+Generating random numbers
+-------------------------
+### Linear congruential method
+### Combined linear congruential method
+
+Tests for random numbers
+------------------------
+
+Real random numbers
+-------------------
+
+Random-variate generation
+=========================
+Inverse-tranform technique
+--------------------------
+
+Acceptance-rejection technique
+------------------------------
+
+Special properties
+------------------
+
+Queueing Models
+===============
+Characteristics of queueing models
+----------------------------------
+
+Queueing notation — Kendall notation
+------------------------------------
+
+Long run measures of performance of queueing systems
+----------------------------------------------------
+
+Steady-state behaviour of infinite-population markovian models
+--------------------------------------------------------------
+
+Steady-state behaviour of finite-population markovian models
+------------------------------------------------------------
+
+Networks of queues
+------------------
+
+Input modeling
+==============
+Data collection
+---------------
+
+Identifying the distribution with data
+--------------------------------------
+
+Parameter estimation
+--------------------
+
+Goodness-of-fit tests
+---------------------
+
+Fitting a non-stationary poisson process
+----------------------------------------
+
+Selecting input models without data
+-----------------------------------
+
+Multivariate and time-series input data
+---------------------------------------
+
+Output analysis for a single model
+==================================
+Types of simulation
+-------------------
+
+Stochastic nature of output data
+--------------------------------
+
+Measures of performance
+-----------------------
+
+Output analysis for terminating simulations
+-------------------------------------------
+
+Output analysis for steady-state simulations
+--------------------------------------------
