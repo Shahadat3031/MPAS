@@ -88,3 +88,35 @@ Steps of simulation study
 
 Validation is most crucial step!
 
+Simulation methods
+==================
+Table method
+------------
+* Manually fill up table (or automate via spreadsheet)
+* $x_{ij}$: Input, $y_i$: Result of repetition $i$
+    1. determine characteristics of each input to simulation
+    2. construct simulation table (see below)
+    3. generate values for $x_{ij}$ for every $i$ and $j$ and calculate
+        $y_i$
+
+------------------------------------------------
+$i$   $x_{i1}$ $x_{i2}$ $\dots$  $x_{ip}$ $y_i$
+----- -------- -------- -------- -------- ------
+$1$
+
+$2$
+
+$...$
+
+$n$
+------------------------------------------------
+
+Queueing systems
+----------------
+* queueing system described by
+    * calling population
+    * arrival rate
+    * service mechanism
+    * system capacity
+    * queuing discipline
+
