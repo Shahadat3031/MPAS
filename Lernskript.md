@@ -391,24 +391,34 @@ Queueing notation — Kendall notation
 
 Long run measures of performance of queueing systems
 ----------------------------------------------------
+* general performance measures of queueing system
+    + $P_n$ steady-state propability of having $n$ customers in system
+    + $P_n(t)$ propability of $n$ customers in system at time $t$
+    + $\lambda$ arrival rate
+    + $\lambda_e$ effective arrival rate
+    + $\mu$ service arrival rate
+    + $\rho$ server utilisation
+    + $A_n$ interarrival time between customers $n-1$ and $n$
+    + $S_n$ service time of the $n$-th arriving customer
+    + $W_n$ total time spent in system by the $n$-th customer
+    + $W_n^Q$ total time spent in waiting line by customer $n$
+    + $L(t)$ the number of customers in system at time $t$
+    + $L_Q(t)$ the number of customers in queue at time $t$
+    + $L$ long-run time-average number of customers in system
+    + $L_Q$ long-run time-average number of customers in queue
+    + $W$ long-run average time spent in system per customer
+    + $w_Q$ long-run average time spent in queue per customer 
+* primary long-run measures:
+    + $L, L_Q, W, w_Q, \rho$
 
-Little's Law
-------------
+The Conservation Equation: Little's Law
+---------------------------------------
 $$\hat L = \hat \lambda \hat w$$
 
 * $\hat L$ Average number of customers in system
 * $\hat \lambda$ Arrival rate
 * $\hat w$ Average system time
 * $L = \lambda w$ as $T \to \infty$ and $N \to \infty$
-
-Steady-state behaviour of infinite-population markovian models
---------------------------------------------------------------
-
-Steady-state behaviour of finite-population markovian models
-------------------------------------------------------------
-
-Networks of queues
-------------------
 
 Input modeling
 ==============
