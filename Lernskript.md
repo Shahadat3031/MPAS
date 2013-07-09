@@ -341,23 +341,65 @@ Random-variate generation
 =========================
 Inverse-tranform technique
 --------------------------
-
+* compute CDF $F(X)$ of desired random variable $X$
+* set $F(X) = R$ on the range of $X$
+* solve equation $F(X) = R$ for $X$ in terms of $R$
+* generate uniform random numbers $R_1, R_2, R_3, ...$ 
+  and compute desired random variate by $X_i = F^{-1}(R_i)$
+ 
 Acceptance-rejection technique
 ------------------------------
-
-Special properties
-------------------
+* generate $R$ and accept/decline according to rule
 
 Queueing Models
 ===============
 Characteristics of queueing models
 ----------------------------------
+* **customers:** served entities
+* **servers:** serving entities
+* **calling population:** population of potential customers
+    + *finite* or *infinite*
+* **system capacity:** slots in queque
+    + *limited* or *unlimited*
+* **pending:** customer is outside the queueing system
+* **runtime of a customer:** time from departure to reentry into 
+  queueing system 
+* Queue behavior:
+    + Balk: leave when line too long
+    + Renege: leave when line moves too slowly
+    + Jockey: move from one line to shorter line
+* Queue discipline:
+    + FIFO, LIFO, SIRO (service in random order), SPN, PR (according to
+      priority)
 
 Queueing notation — Kendall notation
 ------------------------------------
+* notation for parallel server queues: $A/B/c/N/K$
+    + $A$ interarrival-time distribution
+    + $B$ service-time distribution
+    + $c$ number of parallel servers
+    + $N$ system capacity
+    + $K$ size of calling population
+    + $N,K$ dropped if infinite
+    + may be extended by queuing discipline
+* Symbols for $A$ and $B$
+    + $M$ Markov, exponential distribution
+    + $D$ Constant, deterministic
+    + $E_k$ Erlang distribution of order $k$
+    + $H$ Hyperexponential distribution
+    + $G$ General, arbitrary
 
 Long run measures of performance of queueing systems
 ----------------------------------------------------
+
+Little's Law
+------------
+$$\hat L = \hat \lambda \hat w$$
+
+* $\hat L$ Average number of customers in system
+* $\hat \lambda$ Arrival rate
+* $\hat w$ Average system time
+* $L = \lambda w$ as $T \to \infty$ and $N \to \infty$
 
 Steady-state behaviour of infinite-population markovian models
 --------------------------------------------------------------
