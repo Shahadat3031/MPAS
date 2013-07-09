@@ -3,7 +3,6 @@
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage{ifxetex,ifluatex}
-\usepackage{stmaryrd}
 \usepackage{fixltx2e} % provides \textsubscript
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}

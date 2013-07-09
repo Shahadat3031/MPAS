@@ -277,22 +277,65 @@ Continuous distributions
 
 Random number generators
 ========================
-Properties of random numbers
-----------------------------
-
 Pseudo-random numbers
 ---------------------
+* produce sequence of numbers in $[0,1]$, simulating or imitating ideal
+  properties of random numbers
+   + Uniformaty
+   + Independence
 
 Generating random numbers
 -------------------------
+### Midsquare method
+* von Neumann, Metropolis in 1940s
+* start with four digit positive integer $Z_0$
+* compute $Z_0^1 = Z_0 \times Z_0$ $\Rightarrow$ eight digit integer
+* Take middle four digits for next four-digit number
+$$U_i = \frac{Z_i}{1000}$$
+* Problem: tends to 0
+
 ### Linear congruential method
+* Assumption $m > 0$ und $a < m, c < m, X_0 < m$:
+    $$X_{i+1} = (aX_i + c) \mod m, \qquad i = 0,1,2,...$$
+* $X_i \in [0, m-1]$\
+  $\Rightarrow R_i = \frac{X_i}{m}, i = 1,2,...$
+* Hull and Dobell, 1962: LGC has full period if and only if
+    1. greatest common divisor of $m$ and $c$ is 1
+    2. if $q$ is a prime number that divides $m$, then $q$ divides $a$
+    3. if 4 divides $m$, then 4 divides $a-1$
+
+### General congruential generators
+$$X_{i+1} = g(X_i, X_{i-1}, ...) \mod m$$
+
+* $g()$ depends on generator
+    - quadratic congruential generator $g(X_i, X_{i-1}) = aX_i^2 + bX_{i-1} + c$
+    - multiple recursive generators $g(X_i, X_{i-1}, ..., X_{i-k}) = a_1 X_i + a_2 X_{i-1} + ... + a_k X_{i-k}$
+    - fibonacci generator $g(X_i, X_{i-1}) = X_i + X_{i-1}$
+
 ### Combined linear congruential method
+* Longer period generators needed\
+    $\Rightarrow$ Combine two or more multiplicative congruential generators
+  $$X_{i+1,j} = (a_jX_i+c_j) \mod m_j$$
+* suggested, that
+  $$X_i = \left(\sum_{j=1}^k (-1)^{j-1} X_{i,j}\right) \mod m_1 - 1$$
+  and
+  $$R_i = \begin{cases}
+    \frac{X_i}{m_1},    & X_i > 0 \\
+    \frac{m_1-1}{m_1},  & X_i = 0
+  \end{cases}$$
 
 Tests for random numbers
 ------------------------
-
-Real random numbers
--------------------
+* Test for uniformaty
+    + compare uniform distribution with empirical distribution of 
+      generated numbers
+    + Kolmogorov-Sminrnov Test (cdf)
+    + Chi-square Test (expected value)
+* Test for autocorrelation
+    + autocorrelation $\rho_{i,m}$ between $R_i, R_{i+m}, R_{i+2m}, ...,
+      R_{i+(M+1)m}$
+        - $m$ = lag
+        - $M$: largest integer such that $i+(M+1)m \leq N$
 
 Random-variate generation
 =========================
