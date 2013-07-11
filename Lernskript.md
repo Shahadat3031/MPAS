@@ -424,24 +424,65 @@ Input modeling
 ==============
 Data collection
 ---------------
+* quality of output is **no better** than quality of input 
+  (*”garbage in, garbage out“*)
 
 Identifying the distribution with data
 --------------------------------------
+### Histograms
+* frequency distribution
+* suggested number of intervals (bins): $\sqrt{\text{sample size}}$
+* for continous distributions: corresponding to PDF
+* for discrete distributions: corresponding to PMF
+
+### Scatter diagrams
+* Plot data 1 against data 2
+
+### Selecting the family of distributions
+* selected by context of input variable, shape of histogram
+* e.g. physical basis as guideline:
+    - **Binomial:** number of successes in $n$ trial
+    - **Negative binomial and geometric:** number of trials to achieve
+        $k$ successes
+    - **Poisson:** number of independent events that occur in a fix
+        amount of time and space
+    - **Normal:** distribution of a process that is sum of number of 
+        component processes
+    - **Lognormal:** distribution of a process that is product of number
+        of component processes
+    - **Exponential:** time between independent events or memoryless 
+        process time
+    - **Weibull:** time to failure for components
+    - **Discrete or continuous uniform:** models complete uncertainty
+    - **Triangular:** only minimum, most likely value, and maximum are
+        known
+    - **Empirical:** resamples from actual collected data
+ 
+### Quantile-Quantile plot
+* plot sorted sample $\{x_i\ |\ i \in \{1, 2, ..., n\}\}$ against
+  $F^{-1}\left(\frac{i - 0{,}5}{n}\right)$ of suspected distribution ($F$ = CDF)
+* $\approx$ straight line $\Rightarrow$ $F$ is member of appropriate distribution family
+* approximated line has slope 1 $\Rightarrow$ appropriate parameters chosen
+* plotting to samples against each other reveals if both are distributed by
+  same distribution
 
 Parameter estimation
 --------------------
+* calculate sample mean and sample variance (or the approximate variants)
+* maximum likelihood estimators (MLE):
+    - discrete distribution with one parameter $p_\theta(x)$
+    - Likelihood of parameter $\theta$:
+        $$L(\theta) = p_\theta(X_1) \cdot \dots \cdot p_\theta(X_n)$$
+    - maximize $L(\theta)$
+
 
 Goodness-of-fit tests
 ---------------------
-
-Fitting a non-stationary poisson process
-----------------------------------------
-
-Selecting input models without data
------------------------------------
-
-Multivariate and time-series input data
----------------------------------------
+* again Kolmogorov-Test or Chi-Square-Test
+* $p$-value: significance level for $H_0$ rejection of given test statistic
+   value 
+    - $p$-value large: good fit
+    - $p$-value large: poor fit
 
 Output analysis for a single model
 ==================================
